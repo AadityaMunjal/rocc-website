@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@theme inline {
+  --font-sans: var(--font-open-sans);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Hero button styles */
+.hero-btn {
+  @apply inline-block no-underline text-white border border-white px-8 py-3 text-sm bg-transparent relative cursor-pointer transition-all duration-1000;
+}
+
+.hero-btn:hover {
+  @apply border-red-500 bg-red-500;
+}
+
+.red-btn {
+  @apply border-red-500 bg-transparent text-red-500;
+}
+
+.red-btn:hover {
+  @apply bg-red-500 text-white;
+}
