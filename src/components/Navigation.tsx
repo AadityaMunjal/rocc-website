@@ -1,16 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-interface NavigationProps {
-  isHomePage?: boolean;
-}
-
-export default function Navigation({ isHomePage = false }: NavigationProps) {
+export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -18,8 +13,8 @@ export default function Navigation({ isHomePage = false }: NavigationProps) {
   };
 
   return (
-    <nav className="flex justify-between items-center px-4 md:px-12 py-4">
-      <Link href="/">
+    <nav className="sticky top-0 z-[100] bg-black/90 backdrop-blur-md flex justify-between items-center px-4 md:px-12 py-4 shadow-lg">
+      <a href="#home">
         <Image
           src="/logo.png"
           alt="Logo"
@@ -27,55 +22,55 @@ export default function Navigation({ isHomePage = false }: NavigationProps) {
           height={75}
           className="w-32 md:w-[150px]"
         />
-      </Link>
+      </a>
 
       {/* Desktop Navigation */}
       <div className="hidden md:flex flex-1 justify-end">
         <ul className="flex items-center space-x-6">
           <li>
-            <Link
-              href="/"
+            <a
+              href="#home"
               className="text-white text-sm hover:text-red-500 transition-colors duration-300 relative group"
             >
               HOME
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-500 group-hover:w-full"></span>
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              href="/about"
+            <a
+              href="#about"
               className="text-white text-sm hover:text-red-500 transition-colors duration-300 relative group"
             >
               ABOUT
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-500 group-hover:w-full"></span>
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              href="/contact"
+            <a
+              href="#contact"
               className="text-white text-sm hover:text-red-500 transition-colors duration-300 relative group"
             >
               CONTACT/INFO
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-500 group-hover:w-full"></span>
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              href="/links"
+            <a
+              href="#links"
               className="text-white text-sm hover:text-red-500 transition-colors duration-300 relative group"
             >
               LINKS
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-500 group-hover:w-full"></span>
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              href="/join"
+            <a
+              href="#join"
               className="text-white text-sm hover:text-red-500 transition-colors duration-300 relative group"
             >
               JOIN
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-500 group-hover:w-full"></span>
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
@@ -102,49 +97,49 @@ export default function Navigation({ isHomePage = false }: NavigationProps) {
         </button>
         <ul className="pt-16 px-8">
           <li className="mb-4">
-            <Link
-              href="/"
+            <a
+              href="#home"
               className="text-white text-sm block py-2"
               onClick={toggleMenu}
             >
               HOME
-            </Link>
+            </a>
           </li>
           <li className="mb-4">
-            <Link
-              href="/about"
+            <a
+              href="#about"
               className="text-white text-sm block py-2"
               onClick={toggleMenu}
             >
               ABOUT
-            </Link>
+            </a>
           </li>
           <li className="mb-4">
-            <Link
-              href="/contact"
+            <a
+              href="#contact"
               className="text-white text-sm block py-2"
               onClick={toggleMenu}
             >
               CONTACT/INFO
-            </Link>
+            </a>
           </li>
           <li className="mb-4">
-            <Link
-              href="/links"
+            <a
+              href="#links"
               className="text-white text-sm block py-2"
               onClick={toggleMenu}
             >
               LINKS
-            </Link>
+            </a>
           </li>
           <li className="mb-4">
-            <Link
-              href="/join"
+            <a
+              href="#join"
               className="text-white text-sm block py-2"
               onClick={toggleMenu}
             >
               JOIN
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
