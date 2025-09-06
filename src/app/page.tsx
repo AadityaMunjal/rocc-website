@@ -2,13 +2,8 @@
 
 import Link from "next/link";
 import Navigation from "@/components/Navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faEnvelope,
-  faListAlt,
-} from "@fortawesome/free-solid-svg-icons";
-import { faYoutube, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { HiHome, HiEnvelope, HiQueueList } from "react-icons/hi2";
+import { SiYoutube, SiInstagram } from "react-icons/si";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -119,10 +114,7 @@ export default function Home() {
             {/* Contact Details Column */}
             <div className="space-y-8">
               <div className="flex items-center">
-                <FontAwesomeIcon
-                  icon={faHome}
-                  className="text-3xl text-red-500 mr-8 min-w-fit"
-                />
+                <HiHome className="text-3xl text-red-500 mr-8 min-w-fit" />
                 <div>
                   <h2 className="text-xl mb-1 text-gray-600 font-normal">
                     613 George Street, Student Activities Center
@@ -132,10 +124,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-center">
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  className="text-3xl text-red-500 mr-8 min-w-fit"
-                />
+                <HiEnvelope className="text-3xl text-red-500 mr-8 min-w-fit" />
                 <div>
                   <h2 className="text-xl mb-1 text-gray-600 font-normal">
                     rucloudcomputing@gmail.com
@@ -196,7 +185,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="text-red-500 hover:text-red-600 transition-colors"
                 >
-                  <FontAwesomeIcon icon={faListAlt} className="text-5xl" />
+                  <HiQueueList className="text-5xl" />
                 </a>
               </div>
               <div className="flex-1">
@@ -255,7 +244,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="text-red-400 hover:text-red-300 transition-colors"
             >
-              <FontAwesomeIcon icon={faYoutube} className="text-6xl" />
+              <SiYoutube className="text-6xl" />
             </a>
 
             <a
@@ -275,7 +264,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="text-red-400 hover:text-red-300 transition-colors"
             >
-              <FontAwesomeIcon icon={faInstagram} className="text-6xl" />
+              <SiInstagram className="text-6xl" />
             </a>
 
             <a

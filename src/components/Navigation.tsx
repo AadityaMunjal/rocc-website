@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { HiBars3, HiXMark } from "react-icons/hi2";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,7 +79,11 @@ export default function Navigation() {
         onClick={toggleMenu}
         className="md:hidden text-white text-xl z-50 relative"
       >
-        <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
+        {isMenuOpen ? (
+          <HiXMark className="text-xl" />
+        ) : (
+          <HiBars3 className="text-xl" />
+        )}
       </button>
 
       {/* Mobile Navigation */}
@@ -93,7 +96,7 @@ export default function Navigation() {
           onClick={toggleMenu}
           className="absolute top-4 right-4 text-white text-xl"
         >
-          <FontAwesomeIcon icon={faTimes} />
+          <HiXMark className="text-xl" />
         </button>
         <ul className="pt-16 px-8">
           <li className="mb-4">
