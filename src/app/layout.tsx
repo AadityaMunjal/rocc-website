@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: "ROCC | Rutgers Organization of Cloud Computing",
   description:
     "Join the Rutgers Organization of Cloud Computing to learn, build, and innovate with cloud technologies.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
