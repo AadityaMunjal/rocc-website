@@ -14,14 +14,14 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
-  metadataBase: new URL("https://rocc.dev"),
+  metadataBase: new URL("https://rocc-website.vercel.app/"),
   openGraph: {
     type: "website",
     title: "ROCC | Rutgers Organization of Cloud Computing",
     description:
       "Join the Rutgers Organization of Cloud Computing to learn, build, and innovate with cloud technologies.",
     siteName: "ROCC",
-    url: "https://rocc.dev",
+    url: "https://rocc-website.vercel.app/",
     images: [
       {
         url: "/logo.png",
