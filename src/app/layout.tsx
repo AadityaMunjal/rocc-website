@@ -1,18 +1,15 @@
+import type React from "react";
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Analytics } from "@vercel/analytics/next";
+import { Suspense } from "react";
 import "./globals.css";
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  style: ["normal", "italic"],
-});
-
 export const metadata: Metadata = {
-  title: "Rutgers Organization Of Cloud Computing",
+  title: "ROCC | Rutgers Organization of Cloud Computing",
   description:
-    "The best place to learn about cloud computing! Don't hesitate to be a part of the cloud!",
+    "Join the Rutgers Organization of Cloud Computing to learn, build, and innovate with cloud technologies.",
 };
 
 export default function RootLayout({
@@ -21,9 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${openSans.variable} font-sans antialiased`}>
-        {children}
+    <html lang="en" className="dark">
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+        <Suspense fallback={null}>{children}</Suspense>
+        <Analytics />
       </body>
     </html>
   );

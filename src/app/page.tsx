@@ -1,288 +1,359 @@
-"use client";
-
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Users, Calendar, BookOpen, Code, Zap } from "lucide-react";
 import Link from "next/link";
-import Navigation from "@/components/Navigation";
-import { HiHome, HiEnvelope, HiQueueList } from "react-icons/hi2";
-import { SiYoutube, SiInstagram } from "react-icons/si";
-import { useEffect } from "react";
+import Image from "next/image";
 
-export default function Home() {
-  useEffect(() => {
-    // Handle hash navigation on page load
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        // Small delay to ensure DOM is fully loaded
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    }
-  }, []);
+export default function HomePage() {
   return (
-    <div>
-      <Navigation />
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <Image
+                src="/logo.png"
+                alt="ROCC Logo"
+                width={40}
+                height={40}
+                className="h-10 w-auto"
+              />
+              <span className="text-xl font-bold text-primary">ROCC</span>
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <Link
+                href="#about"
+                className="text-foreground hover:text-accent transition-colors"
+              >
+                About
+              </Link>
+              <Link
+                href="#events"
+                className="text-foreground hover:text-accent transition-colors"
+              >
+                Events
+              </Link>
+              <Link
+                href="#contact"
+                className="text-foreground hover:text-accent transition-colors"
+              >
+                Contact
+              </Link>
+              <Link
+                href="https://rutgers.campuslabs.com/engage/organization/rocc"
+                className="text-foreground bg-accent px-3 py-1 rounded-md"
+                target="_blank"
+              >
+                Join Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
 
-      {/* Home Section */}
-      <section
-        id="home"
-        className="min-h-screen w-full bg-gradient-to-b from-blue-900/70 to-blue-900/70 bg-blend-overlay bg-cover bg-center relative pt-20"
-        style={{ backgroundImage: "url('/banner1.png')" }}
-      >
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white w-[90%]">
-          <h1 className="text-4xl md:text-6xl font-normal mb-4">
-            Rutgers Organization Of Cloud Computing
-          </h1>
-          <p className="text-sm md:text-base mb-10 text-white">
-            The best place to learn about cloud computing! <br />
-            Don&apos;t hesitate to be a part of the cloud!
-          </p>
-          <a href="#about" className="hero-btn">
-            Click to Learn More
-          </a>
+      {/* Hero Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto text-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-8 flex justify-center">
+              <Image
+                src="/logo.png"
+                alt="ROCC Logo"
+                width={120}
+                height={120}
+                className="h-24 w-auto md:h-32"
+              />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6 text-balance">
+              Rutgers Organization of Cloud Computing
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 text-pretty">
+              Empowering students to learn, build, and innovate with
+              cutting-edge cloud technologies
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="https://rutgers.campuslabs.com/engage/organization/rocc"
+                className="text-lg px-6 py-3 bg-accent text-foreground rounded-md"
+                target="_blank"
+              >
+                Join ROCC Today
+              </Link>
+              <Link
+                href="#about"
+                className="text-lg px-6 py-3 bg-transparent text-foreground hover:text-accent transition-colors"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section
-        id="about"
-        className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 text-center"
-      >
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-normal mb-8 text-gray-800">
-            About Us
-          </h1>
+      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              What We Do
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+              ROCC is dedicated to fostering a community of cloud computing
+              enthusiasts at Rutgers University
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center">
+              <CardHeader>
+                <div className="mx-auto mb-4 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <BookOpen className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle>Learn</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base">
+                  Explore cloud platforms like AWS, Azure, and Google Cloud
+                  through workshops, tutorials, and hands-on projects
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <div className="mx-auto mb-4 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <Code className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle>Build</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base">
+                  Collaborate on real-world projects, , and cloud-native
+                  applications with fellow students
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <div className="mx-auto mb-4 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle>Connect</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base">
+                  Network with industry professionals, attend tech talks, and
+                  build lasting relationships in the cloud community
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
-      {/* About Content Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-3xl md:text-4xl mb-8 text-gray-800 font-light">
-            The Best Place To Learn About Cloud Computing!
-          </h1>
+      {/* Events Section */}
+      <section id="events" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Upcoming Events
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+              Stay updated with our latest workshops, meetings, and cloud
+              computing events
+            </p>
+          </div>
 
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-12 max-w-3xl mx-auto">
-            This organization aims to create a network for students interested
-            in cloud computing. It provides a platform for discussions, debates,
-            and socializing related to this field. It also helps students build
-            their professional skills, such as resume building, and hosts
-            speaker events to facilitate networking with cloud professionals.
-            The main goal is to inform students about cloud computing careers
-            and teach them the necessary skills to pursue them.
+          <div className="max-w-4xl mx-auto">
+            <Card>
+              <CardHeader className="text-center">
+                <div className="mx-auto mb-4 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                  <Calendar className="h-6 w-6 text-accent" />
+                </div>
+                <CardTitle>Event Calendar</CardTitle>
+                <CardDescription>
+                  View all our upcoming events, workshops, and meetings
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="aspect-video w-full bg-muted rounded-lg flex items-center justify-center">
+                  <iframe
+                    src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=America%2FNew_York&showPrint=0&mode=AGENDA&showNav=0&showTabs=0&showCalendars=0&title=ROCC%20Fall%202025&showTz=0&showTitle=0&src=Y18xNWVhNzRmNTRhY2I5ZTRjYmY0NGEwNzRiM2M0YzY1NjZlNmU3ZDYxNGIzMmJkMzVlN2ZlMDRiNWU0NmQwMjI3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23009688"
+                    className="w-full rounded-lg border-0"
+                    style={{ borderWidth: 0 }}
+                    width="800"
+                    height="600"
+                    frameBorder="0"
+                    scrolling="no"
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Join Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Why Join ROCC?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <Zap className="h-4 w-4 text-accent" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-2">
+                  Industry-Relevant Skills
+                </h3>
+                <p className="text-muted-foreground">
+                  Gain hands-on experience with the same cloud technologies used
+                  by top tech companies
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <Users className="h-4 w-4 text-accent" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-2">
+                  Networking Opportunities
+                </h3>
+                <p className="text-muted-foreground">
+                  Connect with like-minded peers and industry professionals in
+                  the cloud computing space
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <BookOpen className="h-4 w-4 text-accent" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-2">
+                  Certification Support
+                </h3>
+                <p className="text-muted-foreground">
+                  Get guidance and study groups for AWS, Azure, and Google Cloud
+                  certifications
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <Code className="h-4 w-4 text-accent" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-2">
+                  Project Experience
+                </h3>
+                <p className="text-muted-foreground">
+                  Build portfolio-worthy projects that demonstrate your cloud
+                  computing expertise
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact/Social Section */}
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">
+            Get Connected
+          </h2>
+          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto text-pretty">
+            Join our community and stay updated with the latest news, events,
+            and opportunities
           </p>
 
-          <a href="#contact" className="hero-btn red-btn">
-            Learn More
-          </a>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section
-        id="contact"
-        className="py-20 bg-gradient-to-br from-blue-900 to-blue-800 text-center text-white"
-      >
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-normal mb-8">
-            Contact & Additional Information
-          </h1>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3033.6843757643155!2d-74.45124268484403!3d40.50436195822951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3c7ab228198dd%3A0xafbf1da67e9ebb48!2s613%20George%20St%2C%20New%20Brunswick%2C%20NJ%2008901!5e0!3m2!1sen!2sus!4v1680390129746!5m2!1sen!2sus"
-            width="100%"
-            height="400"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-xl shadow-lg"
-          />
-        </div>
-      </section>
-
-      {/* Contact Information Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Details Column */}
-            <div className="space-y-8">
-              <div className="flex items-center">
-                <HiHome className="text-3xl text-red-500 mr-8 min-w-fit" />
-                <div>
-                  <h2 className="text-xl mb-1 text-gray-600 font-normal">
-                    613 George Street, Student Activities Center
-                  </h2>
-                  <p className="text-gray-700">New Brunswick, NJ 08890</p>
-                </div>
-              </div>
-
-              <div className="flex items-center">
-                <HiEnvelope className="text-3xl text-red-500 mr-8 min-w-fit" />
-                <div>
-                  <h2 className="text-xl mb-1 text-gray-600 font-normal">
-                    rucloudcomputing@gmail.com
-                  </h2>
-                  <p className="text-gray-700">Email us with your questions!</p>
-                </div>
-              </div>
-            </div>
-
-            {/* FAQ Column */}
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-xl mb-1 text-gray-600 font-normal">
-                  When and where are your organization meetings held?
-                </h2>
-                <p className="text-gray-700">Wednesdays - 7:30 ~ 8:30 pm!</p>
-              </div>
-
-              <div>
-                <h2 className="text-xl mb-1 text-gray-600 font-normal">
-                  Are your meetings open to all students?
-                </h2>
-                <p className="text-gray-700">Yes!</p>
-              </div>
-
-              <div>
-                <h2 className="text-xl mb-1 text-gray-600 font-normal">
-                  Student Involvement Organizational Theme
-                </h2>
-                <p className="text-gray-700">Academic!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Join Section */}
-      <section
-        id="join"
-        className="py-20 bg-gradient-to-br from-red-500 to-red-600 text-center text-white"
-      >
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-normal mb-8">
-            Ready To Join Us?
-          </h1>
-        </div>
-      </section>
-
-      {/* Join Instructions Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="space-y-8 max-w-4xl mx-auto text-center">
-            <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left mb-8">
-              <div className="mr-0 md:mr-8 mb-4 md:mb-0 flex justify-center">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSdqEp1bOgx1cz1MUDyM8MoMH0jLRRZDEZ9UZTzkFo-_YihmxQ/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-red-500 hover:text-red-600 transition-colors"
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Button asChild size="lg" className="text-lg px-8 py-3">
+              <Link
+                href="https://instagram.com/rucloudcomputing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 mr-2"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
                 >
-                  <HiQueueList className="text-5xl" />
-                </a>
-              </div>
-              <div className="flex-1">
-                <h2 className="text-xl text-gray-600 font-normal">
-                  1. Fill out the google form through the icon on the left.
-                </h2>
-              </div>
-            </div>
+                  <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5zm5.25-.75a.75.75 0 1 1 0 1.5a.75.75 0 0 1 0-1.5z" />
+                </svg>
+                Follow Instagram
+              </Link>
+            </Button>
 
-            <div className="text-center md:text-left mb-8">
-              <h2 className="text-xl text-gray-600 font-normal">
-                2. Sign in to getInvolved and click &quot;Join Club&quot;. A
-                link is provided in the form and in the links page.
-              </h2>
-            </div>
-
-            <div className="text-center md:text-left">
-              <h2 className="text-xl text-gray-600 font-normal">
-                3. Join the GroupMe or Discord through the links page to
-                interact with other members and to stay up-to-date with club
-                events!
-              </h2>
-            </div>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="text-lg px-8 py-3 bg-transparent"
+            >
+              <Link
+                href="https://discord.com/invite/9uQU5bpsQA"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  className="w-5 h-5 mr-2"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.077.077 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
+                </svg>
+                Join Discord
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Links Section */}
-      <section
-        id="links"
-        className="py-20 bg-gradient-to-br from-slate-800 to-slate-900 text-center text-white"
-      >
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-normal mb-8">
-            Helpful Links
-          </h1>
-
-          <h2 className="text-lg md:text-xl text-gray-300 font-normal mb-12 max-w-4xl mx-auto">
-            Use these links to stay up-to-date with the latest news and events
-            from ROCC!
-          </h2>
-
-          <div className="flex flex-wrap justify-center items-center gap-8 mb-8">
-            <a
-              href="https://discord.com/invite/DfqzPAHj28"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-red-400 hover:text-red-300 transition-colors text-lg font-medium underline"
-            >
-              Discord
-            </a>
-
-            <a
-              href="https://www.youtube.com/channel/UCA7In5U9RzL4xdmLAIQnrTA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-red-400 hover:text-red-300 transition-colors"
-            >
-              <SiYoutube className="text-6xl" />
-            </a>
-
-            <a
-              href="https://rutgers.campuslabs.com/engage/organization/rocc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-red-400 hover:text-red-300 transition-colors text-lg font-medium underline"
-            >
-              getINVOLVED
-            </a>
+      {/* Footer */}
+      <footer className="border-t bg-card py-12 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center space-x-3 mb-4 md:mb-0">
+              <Image
+                src="/logo.png"
+                alt="ROCC Logo"
+                width={24}
+                height={24}
+                className="h-6 w-auto"
+              />
+              <span className="text-lg font-semibold text-primary">ROCC</span>
+            </div>
+            <div className="text-center md:text-right">
+              <p className="text-muted-foreground">
+                Rutgers Organization of Cloud Computing
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Empowering the next generation of cloud engineers at Rutgers
+              </p>
+            </div>
           </div>
-
-          <div className="flex justify-center items-center gap-8 mb-8">
-            <a
-              href="https://instagram.com/rucloudcomputing?igshid=YmMyMTA2M2Y="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-red-400 hover:text-red-300 transition-colors"
-            >
-              <SiInstagram className="text-6xl" />
-            </a>
-
-            <a
-              href="https://linktr.ee/rp66"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-red-400 hover:text-red-300 transition-colors text-lg font-medium underline"
-            >
-              Linktree
-            </a>
-          </div>
-
-          <h3 className="text-lg text-gray-300 font-normal max-w-3xl mx-auto">
-            Don&apos;t hesitate to reach out and ask questions through these
-            links or by email!
-          </h3>
         </div>
-      </section>
+      </footer>
     </div>
   );
 }
