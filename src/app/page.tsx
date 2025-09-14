@@ -18,6 +18,13 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center space-x-3">
+              <Image
+                src="/nav-logo.png"
+                alt="ROCC Logo"
+                width={40}
+                height={40}
+                className="h-10 w-auto"
+              />
               <span className="text-xl font-bold text-primary">ROCC</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
